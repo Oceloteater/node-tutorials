@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="assets/style.css" type="text/css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Server</title>
+</head>
+<body>
+    <h1>Connected to Adam.Server1.0</h1>
+    <p>Thanks for connecting</p>
+    <form method="POST" action="person">
+        <p>First name: <input type="text" id="firstName" name="firstName" /></p>
+        <p>Last name: <input type="text" id="lastName" name="lastName" /></p>
+        <input type="submit" value="Submit" />
+    </form>
+    <script>
+        $.ajax({
+            type: 'POST',
+            url: '/api/person',
+            data: JSON.stringify({
+                firstName: 'another',
+                lastName: 'name'
+            }),
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+    </script>
+</body>
+</html>
